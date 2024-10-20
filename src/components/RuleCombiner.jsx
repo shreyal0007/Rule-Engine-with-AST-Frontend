@@ -7,11 +7,18 @@ const RuleCombiner = () => {
   const [error, setError] = useState(null);
 
   const handleCombineRules = async () => {
+    if (rules.length === 0) {
+      setError("Please enter at least one rule to combine.");
+      return;
+    }
+
     try {
       const result = await combineRules(rules);
-      if (result) {
+      if (result && result.combinedAST) {
         setCombinedAST(result.combinedAST);
         setError(null);
+      } else {
+        setError("Failed to combine rules. Please check your input.");
       }
     } catch (error) {
       setError("Error combining rules. Please try again.");

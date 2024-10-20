@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const EvaluateRuleForm = ({ onEvaluateRule }) => {
+const EvaluateRuleForm = ({ onEvaluateRule, combinedAST }) => {
   const [data, setData] = useState({
     age: "",
     department: "",
@@ -12,7 +12,11 @@ const EvaluateRuleForm = ({ onEvaluateRule }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const result = await onEvaluateRule(data);
+      if (!combinedAST) {
+        alert("Combined AST is not available for evaluation.");
+        return;
+      }
+    const result = await onEvaluateRule(data , combinedAST);
     setEvaluationResult(result);
   };
 

@@ -58,24 +58,19 @@ export const combineRules = async (rules) => {
   }
 };
 
-
-  // export const evaluateRule = async (data) => {
-  //   try {
-  //     const response = await axios.post(`${BASE_URL}/combine`, data);
-  //     return response.data;
-  //   } catch (error) {
-  //     console.error("Error evaluating rule:", error);
-  //     return null;
-  //   }
-  // };
-
-  export const evaluateRule = async (data) => {
+  export const evaluateRule = async (data, combinedAST) => {
     try {
-      const response = await axios.post(`${BASE_URL}/evaluate`, data);
+      // Combine data and AST into the request body
+      const requestBody = {
+        userData: data,
+        ast: combinedAST,
+      };
+
+      const response = await axios.post(`${BASE_URL}/evaluate`, requestBody);
       console.log("response", response);
       return response.data;
     } catch (error) {
       console.error("Error evaluating rule:", error);
       return null;
     }
-  }
+  };

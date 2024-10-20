@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { combineRules } from "../api"; // Adjust the import path accordingly
+import { toast } from "react-toastify"; // Import toast
+import "./RuleCombiner.css";
 
 const RuleCombiner = ({ onCombine }) => {
   const [rules, setRules] = useState([]);
@@ -18,6 +20,12 @@ const RuleCombiner = ({ onCombine }) => {
         setCombinedAST(result.combinedAST);
         setError(null);
         onCombine(result.combinedAST); // Pass the combined AST back to the parent
+
+        // Show success toast when rules are combined successfully
+        toast.success("Rules combined successfully!", {
+          position: "top-right",
+          autoClose: 3000,
+        });
       } else {
         setError("Failed to combine rules. Please check your input.");
       }
@@ -28,24 +36,30 @@ const RuleCombiner = ({ onCombine }) => {
   };
 
   return (
-    <div>
-      <h1>Combine Rules</h1>
-      <textarea
+    <div className="rulecombinemain">
+      <p className="combineruleheader">Combine Rules</p>
+      <input
+        className="rulecombineinput"
         placeholder="Enter rules, separated by commas..."
         onChange={(e) =>
           setRules(e.target.value.split(",").map((rule) => rule.trim()))
         }
       />
-      <button onClick={handleCombineRules}>Combine Rules</button>
+      <button onClick={handleCombineRules} className="combinerulebutton">
+        Combine Rules
+      </button>
       {error && <p style={{ color: "red" }}>{error}</p>}
-      {combinedAST && (
-        <div>
-          <h2>Combined AST:</h2>
-          <pre>{JSON.stringify(combinedAST, null, 2)}</pre>
-        </div>
-      )}
     </div>
   );
 };
 
 export default RuleCombiner;
+
+//  {
+//    /* {combinedAST && (
+//         <div>
+//           <h2>Combined AST:</h2>
+//           <pre>{JSON.stringify(combinedAST, null, 2)}</pre>
+//         </div>
+//       )} */
+//  }

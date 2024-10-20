@@ -1,10 +1,21 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import "./TitleBar.css"; // Make sure this CSS file handles styling
 
 const TitleBar = ({ onSelectTab }) => {
-  const [activeTab, setActiveTab] = useState("create");
   const navigate = useNavigate(); // For navigation
+  const location = useLocation(); // To get the current path
+  const [activeTab, setActiveTab] = useState("create");
+
+  // Sync the active tab with the current route
+  useEffect(() => {
+    const path = location.pathname;
+    if (path === "/create") {
+      setActiveTab("create");
+    } else if (path === "/evaluate") {
+      setActiveTab("combine");
+    }
+  }, [location.pathname]);
 
   const handleTabClick = (tab) => {
     setActiveTab(tab);

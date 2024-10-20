@@ -1,28 +1,29 @@
-import React, {  useState } from "react";
-import CreateRule from "./pages/Createrule/Createrule.jsx"
-import EvaluateCombine from "./pages/EvaluateCombine/EvaluateCombine.jsx"
-import RuleForm from "./components/RuleForm";
-import "./App.css";
+import React, { useState } from "react";
 import {
   BrowserRouter as Router,
   Routes,
   Route,
+  Navigate,
 } from "react-router-dom";
-
+import CreateRule from "./pages/Createrule/Createrule.jsx";
+import EvaluateCombine from "./pages/EvaluateCombine/EvaluateCombine.jsx";
 import TitleBar from "./components/TitleBar/TitleBar";
+import "./App.css";
+
 const App = () => {
   const [activeTab, setActiveTab] = useState("create");
+
   return (
     <div className="mainclass">
       <h1 className="mainclassheader">Rule Engine</h1>
       <Router>
-        <TitleBar onSelectTab={setActiveTab}></TitleBar>
+        <TitleBar onSelectTab={setActiveTab} />
         <Routes>
-          <Route path="/create" element={<CreateRule></CreateRule>}></Route>
-          <Route
-            path="/evaluate"
-            element={<EvaluateCombine></EvaluateCombine>}
-          ></Route>
+          {/* Redirect root path to /create */}
+          <Route path="/" element={<Navigate to="/create" />} />
+          {/* Routes */}
+          <Route path="/create" element={<CreateRule />} />
+          <Route path="/evaluate" element={<EvaluateCombine />} />
         </Routes>
       </Router>
     </div>

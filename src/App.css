@@ -4,6 +4,9 @@
 }
 .mainclassheader{
   font-family: Georgia, 'Times New Roman', Times, serif;
+  margin-top: 0px;
+  padding-top: 1.5rem;
+  text-align: center;
 }
 
 .App-logo {
@@ -21,7 +24,7 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #ffbbbb;
   min-height: 100vh;
   display: flex;
   flex-direction: column;

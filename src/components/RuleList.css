@@ -1,0 +1,41 @@
+.existingrulediv {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Align content to the top */
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 20px;
+    border: 2px solid #ff9999;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    background-color: #FFBBBB;
+    width: 60%;
+    height: 700px; /* Fixed height */
+    overflow-y: auto; /* Enable scrolling if content overflows */
+    transition: transform 0.3s;
+    /* Adjust the top padding */
+    padding-top: 1rem; /* Reduced to prevent content cutoff */
+}
+
+
+.existingrulediv ul {
+    width: 100%; /* Ensure the list takes up the full width */
+    padding: 0;
+    margin: 0;
+    list-style-type: none; /* Remove default list styles */
+}
+
+.existingrulediv li {
+    padding: 10px;
+    border-bottom: 1px solid #ff9999; /* Optional: Add a border between rules */
+    text-align: left;
+    width: 100%;
+}
+
+.existingruleheader{
+    font-size: 25px;
+    font-weight: bold;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}

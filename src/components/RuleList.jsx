@@ -1,21 +1,25 @@
 import React from "react";
+import "./RuleList.css";
 
 const RuleList = ({ rules = [] }) => {
-  // Slice the last 5 rules from the array (or fewer if there are less than 5)
-  const lastFiveRules = rules.slice(-5);
+  // Reverse the array so the latest rules appear at the top
+  const sortedRules = [...rules].reverse();
 
   return (
-    <ul>
-      {lastFiveRules.length > 0 ? (
-        lastFiveRules.map((rule, index) => (
-          <li key={rule._id || `${rule.ruleString}-${index}`}>
-            {rule.ruleString}
-          </li>
-        ))
-      ) : (
-        <li>No rules available</li>
-      )}
-    </ul>
+    <div className="existingrulediv">
+      <p className="existingruleheader">Existing Rules</p>
+      <ul>
+        {sortedRules.length > 0 ? (
+          sortedRules.map((rule, index) => (
+            <li key={rule._id || `${rule.ruleString}-${index}`}>
+              {rule.ruleString}
+            </li>
+          ))
+        ) : (
+          <li>No rules available</li>
+        )}
+      </ul>
+    </div>
   );
 };
 

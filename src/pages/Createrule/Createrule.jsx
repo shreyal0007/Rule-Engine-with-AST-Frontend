@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import RuleForm from "../../components/RuleForm";
-import RuleList from "../../components/RuleList";
-import { fetchRules } from "../../api"; // Adjust the import path
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import "./Createrule.css";
 
 const CreateRule = () => {
   const [rules, setRules] = useState([]);
@@ -10,29 +11,21 @@ const CreateRule = () => {
     setRules((prevRules) => [...prevRules, newRule]);
   };
 
-  const fetchAndSetRules = async () => {
-    try {
-      const response = await fetchRules();
-      if (response && Array.isArray(response)) {
-        setRules(response);
-      } else {
-        setRules([]);
-      }
-    } catch (error) {
-      console.error("Error fetching rules:", error.message);
-      setRules([]);
-    }
-  };
-
-  useEffect(() => {
-    fetchAndSetRules();
-  }, [rules]);
-
   return (
-    <div>
+    <div className="createrulemain">
       <RuleForm onRuleCreated={handleRuleCreated} />
-      <h2>Existing Rules</h2>
-      <RuleList rules={rules} />
+      {/* ToastContainer here will handle all toast notifications */}
+      <ToastContainer
+        position="top-right"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
     </div>
   );
 };

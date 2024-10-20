@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import "./EvaluateForm.css";
 const EvaluateRuleForm = ({ onEvaluateRule, combinedAST }) => {
   const [data, setData] = useState({
     age: "",
@@ -26,43 +26,67 @@ const EvaluateRuleForm = ({ onEvaluateRule, combinedAST }) => {
   };
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <h3>Evaluate Rule</h3>
-        <input
-          type="number"
-          name="age"
-          placeholder="Age"
-          value={data.age}
-          onChange={handleChange}
-          required
-        />
-        <input
-          type="text"
-          name="department"
-          placeholder="Department"
-          value={data.department}
-          onChange={handleChange}
-          required
-        />
-        <input
-          type="number"
-          name="salary"
-          placeholder="Salary"
-          value={data.salary}
-          onChange={handleChange}
-          required
-        />
-        <input
-          type="number"
-          name="experience"
-          placeholder="Experience"
-          value={data.experience}
-          onChange={handleChange}
-          required
-        />
-        <button type="submit">Evaluate</button>
+    <div className="evaluateformdiv">
+      <form onSubmit={handleSubmit} className="evaluateform">
+        <p className="evaluateheader">Evaluate Rule</p>
+        <div className="evaluateinputdiv">
+          <input
+            className="evaluateinput"
+            type="number"
+            name="age"
+            placeholder="Age"
+            value={data.age}
+            onChange={handleChange}
+            required
+          />
+          <input
+            type="text"
+            className="evaluateinput"
+            name="department"
+            placeholder="Department"
+            value={data.department}
+            onChange={handleChange}
+            required
+          />
+          <input
+            type="number"
+            className="evaluateinput"
+            name="salary"
+            placeholder="Salary"
+            value={data.salary}
+            onChange={handleChange}
+            required
+          />
+          <input
+            type="number"
+            className="evaluateinput"
+            name="experience"
+            placeholder="Experience"
+            value={data.experience}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <button type="submit" className="evaluatebutton">
+          Evaluate
+        </button>
       </form>
+      {evaluationResult && (
+        <h4>
+          <p className="eres">Evaluation Result:</p>
+          {evaluationResult.result ? (
+            <p>
+              True , proceed with the candidat{"\uD83C\uDF89"}{" "}
+              {"\uD83C\uDF89"}
+            </p>
+          ) : (
+            <p>
+              False , cannot proceed with the candidat{"\uD83D\uDE1F"}{" "}
+              {"\uD83D\uDE1F"}
+            </p>
+          )}
+        </h4>
+      )}
 
       {/* {evaluationResult && (
         <div>

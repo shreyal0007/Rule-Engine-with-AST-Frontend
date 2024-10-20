@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { createRule } from "../api"; // Adjust the import path as needed
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { toast } from "react-toastify"; // Only use toast, not ToastContainer
 import "./RuleForm.css";
 
 const RuleForm = ({ onRuleCreated }) => {
@@ -20,7 +19,7 @@ const RuleForm = ({ onRuleCreated }) => {
         // Show success toast
         toast.success("Rule created successfully!", {
           position: "top-right",
-          autoClose: 3000, // Toast disappears after 3 seconds
+          autoClose: 3000,
         });
       }
     } catch (error) {
@@ -50,20 +49,10 @@ const RuleForm = ({ onRuleCreated }) => {
           <button type="submit" className="createrulebutton">
             Create Rule
           </button>
-          {ast !== null ? (
-            <div>{JSON.stringify(ast, null, 2)}</div>
-          ) : (
-            <div>No tree</div>
-          )}
         </div>
       </form>
-
-      {/* Toast container to render toast notifications */}
-      <ToastContainer />
     </div>
   );
 };
 
 export default RuleForm;
-
-

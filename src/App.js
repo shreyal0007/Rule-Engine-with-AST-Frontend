@@ -1,84 +1,30 @@
-import React, { useEffect, useState } from "react";
+import React, {  useState } from "react";
+import CreateRule from "./pages/Createrule/Createrule.jsx"
+import EvaluateCombine from "./pages/EvaluateCombine/EvaluateCombine.jsx"
 import RuleForm from "./components/RuleForm";
-import RuleCombiner from "./components/RuleCombiner";
-import EvaluateRuleForm from "./components/EvaluateRuleForm";
-import RuleList from "./components/RuleList";
-import { fetchRules, combineRules, evaluateRule } from "./api";
+import "./App.css";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+} from "react-router-dom";
 
+import TitleBar from "./components/TitleBar/TitleBar";
 const App = () => {
-  const [rules, setRules] = useState([]);
-  const [combinedRule, setCombinedRule] = useState(null);
-  const [evaluationResult, setEvaluationResult] = useState(null);
-
-  // Function to fetch rules from the API
-  const fetchAndSetRules = async () => {
-    try {
-      const response = await fetchRules();
-      console.log("Fetched rules response:", response); // Log the response
-      if (response && Array.isArray(response)) {
-        setRules(response); // Set the rules if it's an array
-      } else {
-        setRules([]); // Fallback to an empty array
-        console.error("No rules data found in the response.");
-      }
-    } catch (error) {
-      setRules([]); // Reset to an empty array on error
-      console.error("Error fetching rules:", error.message || error);
-    }
-  };
-
-  // Function to handle the combination of rules
-  const handleCombineRules = async () => {
-    const combinedRuleData = await combineRules(rules);
-    if (combinedRuleData) {
-      setCombinedRule(combinedRuleData);
-      alert("Rules combined successfully!");
-    }
-  };
-
-  // Function to evaluate user data against the combined rule
-  const handleEvaluateRule = async (data) => {
-    // if (!combinedRule) {
-    //   alert("Please combine rules before evaluation.");
-    //   return;
-    // }
-
-    const result = await evaluateRule({ ...data, rule: combinedRule });
-    setEvaluationResult(result); // Set the evaluation result
-  };
-
-  // Fetch rules on component mount
-  useEffect(() => {
-    fetchAndSetRules();
-  }, []);
-
-  // Function to handle new rule creation
-  const handleRuleCreated = (newRule) => {
-    setRules((prevRules) => {
-      return Array.isArray(prevRules) ? [...prevRules, newRule] : [newRule];
-    });
-  };
-
+  const [activeTab, setActiveTab] = useState("create");
   return (
-    <div>
-      <h1>Rule Engine</h1>
-      <RuleForm onRuleCreated={handleRuleCreated} />
-      <h2>Existing Rules</h2>
-      <RuleList rules={Array.isArray(rules) ? rules : []} />
-      <RuleCombiner onCombineRules={handleCombineRules} />
-      <EvaluateRuleForm onEvaluateRule={handleEvaluateRule} />
-      {/* Conditional rendering of the evaluation result */}
-      {evaluationResult !== null && (
-        <div>
-          <h3>
-            Evaluation Result: {evaluationResult.result ? "True" : "False"}
-          </h3>
-          <pre>
-            User Data: {JSON.stringify(evaluationResult.userData, null, 2)}
-          </pre>
-          <pre>AST: {JSON.stringify(evaluationResult.ast, null, 2)}</pre>
-        </div>
-      )}
+    <div className="mainclass">
+      <h1 className="mainclassheader">Rule Engine</h1>
+      <Router>
+        <TitleBar onSelectTab={setActiveTab}></TitleBar>
+        <Routes>
+          <Route path="/create" element={<CreateRule></CreateRule>}></Route>
+          <Route
+            path="/evaluate"
+            element={<EvaluateCombine></EvaluateCombine>}
+          ></Route>
+        </Routes>
+      </Router>
     </div>
   );
 };

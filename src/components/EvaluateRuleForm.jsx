@@ -8,12 +8,12 @@ const EvaluateRuleForm = ({ onEvaluateRule }) => {
     experience: "",
   });
 
-  const [evaluationResult, setEvaluationResult] = useState(null); // State for evaluation result
+  const [evaluationResult, setEvaluationResult] = useState(null);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const result = await onEvaluateRule(data); // Sends user data to evaluate the rule and gets the result
-    setEvaluationResult(result); // Update state with evaluation result
+    const result = await onEvaluateRule(data);
+    setEvaluationResult(result);
   };
 
   const handleChange = (e) => {
@@ -60,7 +60,7 @@ const EvaluateRuleForm = ({ onEvaluateRule }) => {
         <button type="submit">Evaluate</button>
       </form>
 
-      {evaluationResult && ( // Check if evaluationResult is defined
+      {evaluationResult && (
         <div>
           <h4>
             Evaluation Result: {evaluationResult.result ? "True" : "False"}

@@ -11,7 +11,7 @@ const BASE_URL = "http://localhost:5000/api/rules";
 export const createRule = async (ruleString) => {
   try {
     const response = await api.post("/create", { ruleString });
-    
+    console.log(response);
     if (response && response.data) {
       console.log("Created AST:", response.data);
       return response; // Return the full response
@@ -44,7 +44,7 @@ export const fetchRules = async () => {
 export const combineRules = async (rules) => {
   try {
     const response = await axios.post(`${BASE_URL}/combine`, { rules });
-
+    console.log("combine res-", response.data.combinedAST);
     // Check if the response contains combinedAST
     if (response && response.data) {
       console.log("Combined AST:", response.data.combinedAST);

@@ -1,0 +1,35 @@
+/* src/components/NavBar.css */
+
+.navbar {
+  display: flex;
+  justify-content: space-around;
+  position: relative;
+  color: white;
+  background-color: #e16673;
+  padding: 10px;
+  border-bottom: 2px solid #df8a8a; /* Add a border below the nav */
+}
+
+.tab {
+  padding: 10px 20px;
+  cursor: pointer;
+  position: relative;
+  font-weight: bold;
+}
+
+.tab:hover {
+  background-color: #df8a8a; /* Change background on hover */
+}
+
+.active {
+  color: white; /* Active tab color */
+}
+
+.active-bar {
+  position: absolute;
+  bottom: 0;
+  height: 3px;
+  width: 50%; /* Assuming both tabs take equal space */
+  background-color: #4c0835; /* Color of the active bar */
+  transition: left 0.3s ease; /* Smooth transition */
+}

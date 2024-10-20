@@ -1,5 +1,9 @@
 .App {
   text-align: center;
+  background-color:#ffbbbb;
+}
+.mainclassheader{
+  font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 .App-logo {
@@ -11,6 +15,9 @@
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
+}
+.mainclass{
+  background-color:#ffbbbb;
 }
 
 .App-header {

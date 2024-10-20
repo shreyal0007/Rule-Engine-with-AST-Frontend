@@ -1,0 +1,69 @@
+.ruleformdiv{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 3px #240311d6;
+    width: 50%;
+}
+.formdiv{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    padding: 10px;
+    width: 40%;
+}
+.ruleformheader{
+    font-size: 25px;;
+    font-weight: bold;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    margin-bottom: 10px;
+}
+.rulelabel{
+    font-size: 20px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+.ruleinput{
+    font-size: 18px;
+    padding: 5px;
+    height: 2rem;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+.createrulebutton{
+    font-size: 20px;
+    font-weight: bold;
+    padding: 10px;
+    width: 50%;
+    height: 2.75rem;
+    width: auto;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.createrulebutton:hover{
+    background-color: #45a049;
+}
+.createrulebutton:disabled{
+    background-color: #cccccc;
+    color: #666666;
+    cursor: not-allowed;
+}
+.createrulebutton:disabled:hover{
+    background-color: #cccccc;
+}
+.createrulebuttondiv{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0px;
+}

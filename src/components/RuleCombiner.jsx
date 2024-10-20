@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { combineRules } from "../api"; // Adjust the import path accordingly
 
-const RuleCombiner = () => {
+const RuleCombiner = ({ onCombine }) => {
   const [rules, setRules] = useState([]);
   const [combinedAST, setCombinedAST] = useState(null);
   const [error, setError] = useState(null);
@@ -17,6 +17,7 @@ const RuleCombiner = () => {
       if (result && result.combinedAST) {
         setCombinedAST(result.combinedAST);
         setError(null);
+        onCombine(result.combinedAST); // Pass the combined AST back to the parent
       } else {
         setError("Failed to combine rules. Please check your input.");
       }

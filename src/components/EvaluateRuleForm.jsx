@@ -12,11 +12,11 @@ const EvaluateRuleForm = ({ onEvaluateRule, combinedAST }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-      if (!combinedAST) {
-        alert("Combined AST is not available for evaluation.");
-        return;
-      }
-    const result = await onEvaluateRule(data , combinedAST);
+    if (!combinedAST) {
+      alert("Combined AST is not available for evaluation.");
+      return;
+    }
+    const result = await onEvaluateRule(data, combinedAST);
     setEvaluationResult(result);
   };
 
@@ -64,7 +64,7 @@ const EvaluateRuleForm = ({ onEvaluateRule, combinedAST }) => {
         <button type="submit">Evaluate</button>
       </form>
 
-      {evaluationResult && (
+      {/* {evaluationResult && (
         <div>
           <h4>
             Evaluation Result: {evaluationResult.result ? "True" : "False"}
@@ -74,7 +74,7 @@ const EvaluateRuleForm = ({ onEvaluateRule, combinedAST }) => {
           <h5>AST:</h5>
           <pre>{JSON.stringify(evaluationResult.ast, null, 2)}</pre>
         </div>
-      )}
+      )} */}
     </div>
   );
 };

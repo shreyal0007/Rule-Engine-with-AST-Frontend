@@ -1,51 +1,72 @@
-.evaluateformdiv{
+.evaluateformdiv {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-bottom: 20px;
+    margin: 20px auto; /* Center the form with auto margins */
     padding: 20px;
     border: 2px solid #ff9999;
     border-radius: 10px; 
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    background-color: #FFBBBB; 
-    width: 46%;
+    background-color: #FFBBBB;
+    width: 90%; /* Adjust to 90% width to prevent attachment to edges */
+    max-width: 600px; /* Limit max width on larger screens */
     transition: transform 0.3s;
 }
-.evaluateinput{
+
+.evaluateformdiv:hover {
+    transform: translateY(-5px);
+}
+
+.evaluateinput {
     font-size: 18px;
-    padding: 5px;
-    height: 2rem;
-    width: inherit;
+    padding: 10px; /* Increase padding for easier interaction */
+    height: 2.5rem;
+    width: 100%; /* Full width input */
     margin-bottom: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
+    box-sizing: border-box; /* Ensure padding and border don't affect width */
 }
-.evaluateform{
+
+.evaluateform {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    width: 100%;
 }
-.evaluateinputdiv{
+
+.evaluateinputdiv {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 10px;
+    width: 100%;
 }
-.evaluateheader{
+
+/* Adjust layout for smaller screens (mobiles, tablets) */
+@media (max-width: 768px) {
+    .evaluateinputdiv {
+        grid-template-columns: 1fr; /* Make inputs stack vertically */
+    }
+}
+
+.evaluateheader {
     font-size: 25px;
     font-weight: bold;
     font-family: Georgia, 'Times New Roman', Times, serif;
     margin-bottom: 20px;
     margin-top: 10px;
+    text-align: center; /* Center the text for responsiveness */
 }
-.evaluatebutton{
+
+.evaluatebutton {
     font-size: 20px;
     font-weight: bold;
     padding: 10px;
-    width: 30%;
-    height: 2.45rem;
-    width: auto;
+    width: 100%; /* Full width button for smaller screens */
+    max-width: 200px; /* Limit max width on larger screens */
+    height: 2.5rem;
     background-color: #4CAF50;
     color: white;
     border: none;
@@ -53,11 +74,34 @@
     border-radius: 5px;
     cursor: pointer;
 }
-.eres{
+
+.eres {
     font-size: 20px;
     text-align: center;
     font-weight: bold;
     font-family: Georgia, 'Times New Roman', Times, serif;
     margin-bottom: 10px;
     margin-top: 10px;
+}
+
+/* Add further styles for very small screens (phones) */
+@media (max-width: 480px) {
+    .evaluateformdiv {
+        width: 95%; /* Slightly reduce width to prevent edge contact */
+        padding: 15px; /* Adjust padding for small screens */
+    }
+
+    .evaluateheader {
+        font-size: 22px;
+    }
+
+    .evaluatebutton {
+        font-size: 18px;
+        padding: 8px;
+    }
+
+    .evaluateinput {
+        font-size: 16px;
+        padding: 8px; 
+    }
 }

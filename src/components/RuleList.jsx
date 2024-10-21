@@ -7,7 +7,7 @@ const RuleList = ({ rules = [] }) => {
 
   return (
     <div className="existingrulediv">
-      <p className="existingruleheader">Existing Rules</p>
+      <div className="existingruleheader">Existing Rules</div>
       <ul>
         {sortedRules.length > 0 ? (
           sortedRules.map((rule, index) => (

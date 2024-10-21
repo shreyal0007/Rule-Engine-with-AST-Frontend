@@ -1,5 +1,6 @@
 .existingrulediv {
     display: flex;
+    position: relative;
     flex-direction: column;
     justify-content: flex-start; /* Align content to the top */
     align-items: center;
@@ -11,7 +12,7 @@
     background-color: #FFBBBB;
     width: 60%;
     height: 700px; /* Fixed height */
-    overflow-y: auto; /* Enable scrolling if content overflows */
+    overflow-y: auto; 
     transition: transform 0.3s;
     /* Adjust the top padding */
     padding-top: 1rem; /* Reduced to prevent content cutoff */
@@ -21,6 +22,7 @@
 .existingrulediv ul {
     width: 100%; /* Ensure the list takes up the full width */
     padding: 0;
+     overflow-y: auto;
     margin: 0;
     list-style-type: none; /* Remove default list styles */
 }
@@ -34,6 +36,8 @@
 
 .existingruleheader{
     font-size: 25px;
+    top: 0;
+    position: static;
     font-weight: bold;
     font-family: Georgia, 'Times New Roman', Times, serif;
     margin-bottom: 10px;

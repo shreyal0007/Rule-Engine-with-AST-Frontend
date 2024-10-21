@@ -3,14 +3,14 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 20px auto; /* Center the form with auto margins */
+    margin: 20px auto; 
     padding: 20px;
     border: 2px solid #ff9999;
     border-radius: 10px; 
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     background-color: #FFBBBB;
-    width: 90%; /* Adjust to 90% width to prevent attachment to edges */
-    max-width: 600px; /* Limit max width on larger screens */
+    width: 90%; 
+    max-width: 600px;
     transition: transform 0.3s;
 }
 
@@ -20,13 +20,13 @@
 
 .evaluateinput {
     font-size: 18px;
-    padding: 10px; /* Increase padding for easier interaction */
+    padding: 10px; 
     height: 2.5rem;
-    width: 100%; /* Full width input */
+    width: 100%; 
     margin-bottom: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    box-sizing: border-box; /* Ensure padding and border don't affect width */
+    box-sizing: border-box; 
 }
 
 .evaluateform {
@@ -44,10 +44,10 @@
     width: 100%;
 }
 
-/* Adjust layout for smaller screens (mobiles, tablets) */
+
 @media (max-width: 768px) {
     .evaluateinputdiv {
-        grid-template-columns: 1fr; /* Make inputs stack vertically */
+        grid-template-columns: 1fr; 
     }
 }
 
@@ -57,15 +57,15 @@
     font-family: Georgia, 'Times New Roman', Times, serif;
     margin-bottom: 20px;
     margin-top: 10px;
-    text-align: center; /* Center the text for responsiveness */
+    text-align: center; 
 }
 
 .evaluatebutton {
     font-size: 20px;
     font-weight: bold;
     padding: 10px;
-    width: 100%; /* Full width button for smaller screens */
-    max-width: 200px; /* Limit max width on larger screens */
+    width: 100%; 
+    max-width: 200px;
     height: 2.5rem;
     background-color: #4CAF50;
     color: white;
@@ -84,11 +84,11 @@
     margin-top: 10px;
 }
 
-/* Add further styles for very small screens (phones) */
+
 @media (max-width: 480px) {
     .evaluateformdiv {
-        width: 95%; /* Slightly reduce width to prevent edge contact */
-        padding: 15px; /* Adjust padding for small screens */
+        width: 95%; 
+        padding: 15px; 
     }
 
     .evaluateheader {

@@ -79,15 +79,15 @@
 /* Media queries for responsiveness */
 @media screen and (max-width: 768px) {
     .ruleformdiv {
-        width: 80%; /* Increase the width for tablets and small devices */
+        width: 80%; 
     }
 
     .formdiv {
-        width: 70%; /* Increase the width of the form for smaller devices */
+        width: 70%;
     }
 
     .ruleinput {
-        font-size: 16px; /* Adjust the font size */
+        font-size: 16px;
     }
 
     .createrulebutton {
@@ -98,7 +98,7 @@
 
 @media screen and (max-width: 480px) {
     .ruleformdiv {
-        width: 90%; /* Almost full width for mobile phones */
+        width: 90%;
         padding: 15px;
     }
 
@@ -107,11 +107,11 @@
     }
 
     .ruleformheader {
-        font-size: 22px; /* Adjust font size for mobile */
+        font-size: 22px; 
     }
 
     .ruleinput {
-        font-size: 14px; /* Smaller font size for mobile */
+        font-size: 14px;
     }
 
     .createrulebutton {

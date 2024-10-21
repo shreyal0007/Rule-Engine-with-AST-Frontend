@@ -52,13 +52,13 @@ const EvaluateCombine = () => {
         <RuleList rules={rules} onCombine={handleCombinedAST} />
       </div>
       <EvaluateRuleForm onEvaluateRule={handleEvaluateRule} combinedAST={ast} />
-      {evaluationResult && (
+      {/* {evaluationResult && (
         <div className="evaluate-combine-div2">
           <h4>
             Evaluation Result: {evaluationResult.result ? "True" : "False"}
           </h4>
         </div>
-      )}
+      )} */}
       <ToastContainer /> 
     </div>
   );

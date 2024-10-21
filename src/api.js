@@ -2,10 +2,10 @@ import axios from "axios";
 
 // Create an axios instance with base URL
 const api = axios.create({
-  baseURL: "http://localhost:5000/api/rules", // Make sure this matches your backend
+  baseURL: "https://rule-engine-with-ast-backend.onrender.com/api/rules", // Make sure this matches your backend
 });
 
-const BASE_URL = "http://localhost:5000/api/rules";
+const BASE_URL = "https://rule-engine-with-ast-backend.onrender.com/api/rules";
 
 // Function to create a rule
 export const createRule = async (ruleString) => {

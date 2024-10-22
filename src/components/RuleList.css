@@ -5,14 +5,14 @@
     justify-content: flex-start;
     align-items: center;
     margin-bottom: 20px;
+    min-width: 40rem;
     padding: 20px;
     border: 2px solid #ff9999;
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     background-color: #FFBBBB;
     width: 60%;
-    min-height: 60%;
-    height: 700px; 
+    /* height: 700px;  */
     overflow-y: auto; 
     transition: transform 0.3s;
     padding-top: 1rem; 

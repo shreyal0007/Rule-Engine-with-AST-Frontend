@@ -47,7 +47,7 @@ const RuleList = ({ rules = [], onCombine }) => {
       <div className="existingruleheader">
         <p className="existingruleheader">Existing Rules</p>
         <button onClick={handleCombineRules} className="combinerulebutton">
-          Combine Selected Rules
+          Combine Rules
         </button>
       </div>
 

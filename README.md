@@ -1,70 +1,88 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# 3-Tier Rule Engine Application
 
-## Available Scripts
+## Project Overview
 
-In the project directory, you can run:
+This application is a 3-tier rule engine that helps determine user eligibility based on attributes such as age, department, income, spend, etc. It uses **Abstract Syntax Tree (AST)** to represent conditional rules and allows users to dynamically create, combine, and evaluate these rules. The frontend allows user interaction, while the backend processes the data and applies the rules.
 
-### `npm start`
+---
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Objective
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Develop a rule engine that dynamically evaluates a candidate's eligibility for a task based on attributes such as:
+- **Age**
+- **Department**
+- **Income**
+- **Experience**
 
-### `npm test`
+---
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Architecture
 
-### `npm run build`
+### 1. Frontend (React.js)
+   - Users can create rules, combine them, and evaluate eligibility based on entered data.
+   - UI allows:
+     - **Rule Creation**
+     - **Rule Combination**
+     - **Eligibility Evaluation**
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 2. Backend (Node.js & Express)
+   - Manages API endpoints for rule handling and evaluation.
+   - Processes data using combined AST rules to determine eligibility.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### 3. Database (MongoDB Atlas)
+   - Stores the rules created by users.
+   - Hosted on **MongoDB Atlas** for cloud-based database services.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `npm run eject`
+## Tech Stack
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- **Frontend**: React.js
+- **Backend**: Node.js, Express.js
+- **Database**: MongoDB (Hosted on Atlas)
+- **Other Tools**: 
+  - **AST** for rule representation and combination
+  - **Axios** for frontend-backend communication
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+---
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Features
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- **Rule Creation**: Define rules based on attributes like age, income, department, and experience.
+- **Rule Combination**: Combine multiple rules to form a set of conditions.
+- **Candidate Evaluation**: Input a candidate's details and determine if they meet the combined rule set.
 
-## Learn More
+---
+## Live Link of Web App 
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- https://rule-engine-with-ast-frontend-pvwg.vercel.app/create
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+---
+## Usage
 
-### Code Splitting
+1. **Rule Creation**:
+   - Navigate to the "Create Rule" tab on the frontend.
+   - Input the conditions (e.g., age > 30, income > 50000, etc.).
+   - Click Create Rule to save the new rule to the database.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+2. **Rule Combination**:
+   - Go to the "Combine and Evaluate" tab.
+   - Select rules from the list of previously created rules.
+   - Click Combine Rules to create a set of combined conditions.
 
-### Analyzing the Bundle Size
+3. **Eligibility Evaluation**:
+   - In the same "Combine and Evaluate" tab, input a person's details (e.g., age, department, income, experience).
+   - Click Evaluate to determine if the person is eligible based on the combined rules.
+   - The result will show whether the candidate fits the criteria.
+  
+## Future Improvements
+- Add support for more complex rule combinations (e.g., nested conditions).
+- Implement caching to improve evaluation performance.
+- Enhance UI to provide a more intuitive experience with drag-and-drop rule creation.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Contact
+For any queries or suggestions, feel free to contact:
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- **Name**: Shreyal Jain
+- **Email**: shreyaljain0007@gmail.com
